@@ -1,0 +1,27 @@
+﻿@using WebApplication1.Models.Siniflar
+@model List<Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+<br/>
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>City>
+        <th>Mail</th>
+    </tr>
+    @foreach(var k in Model)
+            {
+                <tr>
+                    <td>@k.Customerid</td>
+                    <td>@k.CustomerName</td>
+                    <td>@k.CustomerSurname</td>
+                    <<td>@k.CustomerCity</td>
+                    <td>@k.Customermail</td>
+                </tr>
+            }
+</table>
+

@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|c:\\users\\azra\\source\\repos\\webapplication1\\webapplication1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|C:\\Users\\AZRA\\source\\repos\\WebApplication1\\webapplication1\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|C:\\Users\\AZRA\\source\\repos\\WebApplication1\\webapplication1\\views\\shared\\employeelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\employeelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|C:\\Users\\AZRA\\source\\repos\\WebApplication1\\webapplication1\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|C:\\Users\\AZRA\\source\\repos\\WebApplication1\\webapplication1\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{317B1822-2A38-4D07-96B6-4452F29ABDCB}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAB8AAAAAgMo52hwLwCIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T08:51:43.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T12:02:42.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\EmployeeLayout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\EmployeeLayout.cshtml",
+              "ToolTip": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\EmployeeLayout.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\EmployeeLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T14:14:16.4Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T10:41:46.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\AZRA\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwD8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T08:42:48.25Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+﻿@using WebApplication1.Models.Siniflar
+@model List<Log>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
+}
+<br />
+<h2>Logging İşlemleri</h2>
+@if (ViewBag.Hata != null)
+{
+    <div class="alert alert-danger">@Html.Raw(ViewBag.Hata)</div>
+}
+else
+{
+    <table class="table table-bordered" style="margin-top:20px">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Tarih</th>
+            <th>Emplooye ID</th>
+            <th>User</th>
+            <th>State</th>
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.LogId</td>
+                <td>@x.Title</td>
+                <td>@x.Message</td>
+                <td>@x.Tarih</td>
+                <td>@x.Employeeid</td>
+                <td>@x.User</td>
+                <td>@x.State</td>
+
+            </tr>
+        }
+
+    </table>
+   
+    if (totalPages > 1)
+    {
+        int visiblePages = 5;
+        int startPage = Math.Max(1, currentPage - 2);
+        int endPage = Math.Min(totalPages, currentPage + 2);
+
+        <nav>
+            <ul class="pagination justify-content-center">
+
+                <!-- İlk sayfa -->
+                <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = 1 })">«</a>
+                </li>
+
+                <!-- Önceki sayfa -->
+                <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1 })">‹</a>
+                </li>
+
+                @if (startPage > 1)
+                {
+                    <li class="page-item"><span class="page-link">...</span></li>
+                }
+
+                @for (int i = startPage; i <= endPage; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                    </li>
+                }
+
+                @if (endPage < totalPages)
+                {
+                    <li class="page-item"><span class="page-link">...</span></li>
+                }
+
+                <!-- Sonraki sayfa -->
+                <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1 })">›</a>
+                </li>
+
+                <!-- Son sayfa -->
+                <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = totalPages })">»</a>
+                </li>
+
+            </ul>
+        </nav>
+    }
+}
+

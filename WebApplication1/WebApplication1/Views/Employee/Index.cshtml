@@ -1,0 +1,358 @@
+﻿@using WebApplication1.Models.Siniflar
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+<br />
+<input type="hidden" id="jwtToken" value="@Session["JWToken"]" />
+<button class="btn btn-primary create-update-modal" data-toggle="modal" data-target="#ModalYeniEmployee">Yeni Employee Ekle</button>
+<table id="tbl1" class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Mail</th>
+            <th>Role</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Employeeid</td>
+            <td>@k.Name</td>
+            <td>@k.Surname</td>
+            <td>@k.Employeemail</td>
+            <td>@k.Role.RoleName</td>
+            <td><button class="btn btn-primary open-update-modal" data-id="@k.Employeeid" data-toggle="modal" data-target="#Modal1">Güncelle</button></td>
+        </tr>
+    }
+</table>
+
+<div class="modal" id="Modal1">
+    @*Popup’ın tamamını kapsar.*@
+    <div class="modal-dialog">
+        @*Modal kutusunu ortalar (hem dikey hem yatay olarak).*@
+        <div class="modal-content">
+            @*Modal kutusunun asıl içeriğini kapsar.*@
+            <div class="modal-header">
+                @*Modal başlığını içerir.*@
+                <h2 class="modal-title">Employee Güncelleme</h2>
+            </div>
+            <div class="modal-body">
+                @*Kullanıcının göreceği esas içerik burada yer alır.*@
+                <form id="updateForm">
+                    @*Bu forma bir kimlik veriyor (id). JavaScript ile bu formun verilerini almak ya da submit işlemini yapmak için bu id kullanılır.*@
+                    <input type="hidden" id="Employeeid" />
+                    <div class="form-group">
+                        @*Bootstrap kütüphanesinde form-group sınıfı, bir form alanı ile ona ait etiketi (label) birlikte düzenli ve şık bir şekilde göstermek için kullanılır.*@
+                        <label>Name</label>
+                        <input type="text" id="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Surname</label>
+                        <input type="text" id="Surname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="email" id="Employeemail" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select id="Roleid" class="form-control">
+                            <!-- Roller AJAX ile buraya doldurulacak -->
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-success" id="btnGuncelle">Kaydet</button>
+                    <button type="button" class="btn btn-danger btn-modal-cancel">Tamam</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Yeni Employee Ekleme Modal -->
+<div class="modal" id="ModalYeniEmployee" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Employee Ekle</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formYeniEmployee">
+                    <div class="form-group">
+                        <label>İsim</label>
+                        <input type="text" id="YeniName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Soyisim</label>
+                        <input type="text" id="YeniSurname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="email" id="YeniEmployeemail" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" id="YeniUsername" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" id="YeniPassword" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre Tekrar</label>
+                        <input type="password" id="YeniPasswordConfirm" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Rol</label>
+                        <select id="YeniRoleid" class="form-control">
+                            <!-- Roller AJAX ile buraya doldurulacak -->
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-success" id="btnYeniKaydet">Kaydet</button>
+                    <button type="button" class="btn btn-danger btn-modal-cancel" id="ModalYeniEmployeeİptal">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {   @*@section Scripts Razor view motorunun sağladığı bir yapıdır.Amaç: Script (JavaScript) kodlarını view’ın altına, doğru yere yerleştirmektir*@   @*View tarafında section Scripts { ... } ile gönderdiğin tüm JavaScript kodları, Layout’un en altına yerleştirilecek.*@
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- DataTables CSS (Bootstrap 5 uyumlu) -->
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+<!-- jQuery (yalnızca DataTables için gerekli) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap 5 JS (jQuery bağımlılığı yok) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables çekirdeği -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<!-- DataTables‑Bootstrap 5 entegrasyonu -->
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="wwwroot/js/employee.js"></script> 
+
+@*<script>*@
+    @*//if (!$.fn.DataTable.isDataTable('#tbl1')) { 
+    //$('#tbl1').DataTable({
+    //    dom:
+    //        "<'row'<'col-sm-12'f>>" +           // Üstte arama kutusu (filter)
+    //        "<'row'<'col-sm-12'tr>>" +          // Tablo gövdesi (table)
+    //        "<'row flex-nowrap align-items-center'<'col-6'l><'col-sm-6 d-flex justify-content-end'p>>"  // Altta: sol yarıda length menu, sağ yarıda sayfalama
+    //});
+    //}*@
+@*</script>*@
+@*<script>*@
+   @*/* $('#tbl1').DataTable();*/*@
+    @*let seciliEmployeeId = null;
+    $(document).on("click", ".open-update-modal", function () {
+        var id = $(this).data("id");
+        seciliEmployeeId = id;
+        console.log("Butondan gelen id:", id);
+
+        // Session kontrolü için küçük bir AJAX çağrısı yapacağız
+        $.ajax({
+            url: '/Home/CheckSession', // Örnek, session kontrol endpoint'i (sen bunu backend'de yazacaksın)
+            type: 'GET',
+            success: function (sessionActive) {
+                if (sessionActive === true) {
+                    // Session aktif, veri çek ve popup aç
+
+                    $.ajax({ /* JavaScript'in jQuery kütüphanesiyle AJAX (arka planda veri alma/gönderme) işlemidir.*/
+                        url: '/Employee/EmployeeGetir', // Controller'a göre ayarla
+                        type: 'GET',
+                        data: { id: id }, /*Sunucuya gönderilecek veriler.*/
+                        success: function (data) {/* AJAX isteği başarılı olursa çalışacak kod bloğu.*/
+                            console.log("Modal doldurulan id:", data.Employeeid);
+                            $('#Employeeid').val(data.Employeeid); /*Val değeri Input'un değerini okur (getirir)*/
+                            $('#Name').val(data.Name);
+                            $('#Surname').val(data.Surname);
+                            $('#Employeemail').val(data.Employeemail);
+                            RolleriGetir(data.Roleid);
+                            // Popup göster
+                           $('#Modal1').modal('show');
+                        },
+                    });
+                } else {
+                    // Session yok, login sayfasına yönlendir
+                    window.location.href = '/Login/Index';
+                }
+            },
+            error: function () {
+                // AJAX hatası (örneğin session kontrol API'sine erişim yok)
+                alert('Oturum kontrolü yapılamadı. Lütfen tekrar giriş yapınız.');
+                window.location.href = '/Login/Index';
+
+            }
+        });
+    });
+
+    $('#btnGuncelle').click(function () {
+        var employee = {
+            Employeeid: seciliEmployeeId,
+            Name: $('#Name').val(),
+            Surname: $('#Surname').val(),
+            Employeemail: $('#Employeemail').val(),
+            Roleid: parseInt($('#Roleid').val())
+        };
+        console.log("Gidecek employee id:", employee.Employeeid);
+
+        $.ajax({
+            url: '/Employee/EmployeeGuncelle',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(employee),
+
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Güncelleme başarılı!',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        timerProgressBar: true
+                    }).then(() => {
+                        // Bildirim kapanınca sayfayı yenile
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Güncelleme başarısız',
+                        text: response.message
+                    });
+                }
+            },
+
+            error: function (xhr) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Bir hata oluştu!',
+                    text: xhr.status + ' ' + xhr.statusText
+                });
+            }
+        });
+    });
+
+    // Rolleri veritabanından çekip select'e yerleştir.
+    //rolleri AJAX ile sunucudan çekip < select > kutusuna yerleştiriyor ve eğer önceden seçilmiş bir rol varsa onu da seçili yapıyor.
+    function RolleriGetir(secilenId) {
+        $.ajax({
+            url: '/Employee/RoleListesi',
+            type: 'GET',
+            success: function (roller) {
+                var select = $('#Roleid');
+                select.empty(); /*<select> içi tamamen temizleniyor.*/
+
+                $.each(roller, function (i, rol) {  /*jQuery'nin each fonksiyonu ile roller dizisi içinde dönülüyor.  i: index (0, 1, 2, ...),rol: dizideki tek bir rol objesi (örneğin { Roleid: 3, RoleName: "Admin" })*/
+                    var seciliMi = rol.Roleid == secilenId ? "selected" : ""; /*Eğer şu anki rolun Roleid'si secilenId ile eşitse, seciliMi değişkenine "selected" stringi atanır.*/
+                    select.append('<option value="' + rol.Roleid + '" ' + seciliMi + '>' + rol.RoleName + '</option>');
+                });
+            }
+        });
+    }
+    // Yeni Employee modalı için roller dropdown
+
+    $(document).on("click", ".create-update-modal", function () {
+    // Önce session kontrolü yap
+    $.ajax({
+        url: '/Home/CheckSession',  // Backend'de yazdığın session kontrol endpoint'i
+        type: 'GET',
+        success: function (sessionActive) {
+            if (sessionActive === true) {
+                // Session aktif, rolleri çek ve modalı aç
+                $.ajax({
+                    url: '/Employee/RoleListesi',
+                    type: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + '@Session["JWToken"]'
+                    },
+                    success: function (roller) {
+                        var select = $('#YeniRoleid');
+                        select.empty();
+
+                        $.each(roller, function (i, rol) {
+                            select.append('<option value="' + rol.Roleid + '">' + rol.RoleName + '</option>');
+                        });
+
+                        // Roller yüklendikten sonra modalı göster
+                        $('#ModalYeniEmployee').modal('show');
+                    },
+                    error: function () {
+                        alert('Roller alınırken bir hata oluştu.');
+                    }
+                });
+            } else {
+                // Session yoksa login sayfasına yönlendir
+                window.location.href = '/Login/Index';
+            }
+        },
+        error: function () {
+            alert('Oturum kontrolü yapılamadı. Lütfen tekrar giriş yapınız.');
+            window.location.href = '/Login/Index';
+        }
+    });
+});
+
+    // Yeni Employee kaydet butonu
+    $('#btnYeniKaydet').click(function () {
+        if ($('#YeniPassword').val() !== $('#YeniPasswordConfirm').val()) {
+            alert('Şifreler uyuşmuyor!');
+            return;
+        }
+
+        var employee = {
+            Name: $('#YeniName').val(),
+            Surname: $('#YeniSurname').val(),
+            Employeemail: $('#YeniEmployeemail').val(),
+            Username: $('#YeniUsername').val(),
+            Password: $('#YeniPassword').val(),
+            Roleid: parseInt($('#YeniRoleid').val())
+        };
+
+        $.ajax({
+            url: '/Employee/EmployeeEkle',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(employee),
+            success: function (response) {
+                if (response.success) {
+                    alert('Yeni employee başarıyla eklendi!');
+                    $('#ModalYeniEmployee').modal('hide');
+                    location.reload();
+                } else {
+                    alert('Ekleme başarısız: ' + response.message);
+                }
+            },
+            error: function () {
+                alert('Bir hata oluştu!');
+            }
+        });
+    });
+
+    $(document).ajaxError(function (event, jqXHR, ajaxSettings, thrownError) {
+        if (jqXHR.status === 401) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oturumunuz sona erdi',
+                text: 'Lütfen tekrar giriş yapınız.',
+                confirmButtonText: 'Tamam'
+            }).then(() => {
+                window.location.href = '/Login/Index';
+            });
+        }
+    });*@
+@*</script>*@
+}

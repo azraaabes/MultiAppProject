@@ -1,0 +1,103 @@
+﻿@using WebApplication1.Models.Siniflar
+@using Microsoft.Extensions.Caching.Distributed
+@model List<Role>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+
+    /* ▶ roleId’yi al – Session boşsa Redis’ten getir */
+    var roleId = Session["RoleId"] as string;
+    if (string.IsNullOrEmpty(roleId) && Session["Username"] != null)
+    {
+        roleId = WebApplication1.Helpers.RedisCacheHelper.Cache
+                 .GetString($"user:{Session["Username"]}:role");
+        Session["RoleId"] = roleId;   // tekrar Session'a yaz
+    }
+}
+<br />
+<!-- 🔄 Buton: sadece roleId == 3 ise -->
+@if (roleId == "3")
+{
+    <button class="btn btn-primary open-update-modal"
+            data-toggle="modal" data-target="#Modal1">
+        Yeni Role Ekle
+    </button>
+}
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Rol ID</th>
+        <th>Rol Adı</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Roleid </td>
+            <td>@k.RoleName</td>
+
+        </tr>
+
+    }
+
+</table>
+<!-- 🔄 Modalı da aynı koşulla sar -->
+@if (roleId == "3")
+{
+    <div class="modal" id="Modal1">
+        @*Popup’ın tamamını kapsar.*@
+        <div class="modal-dialog">
+            @*Modal kutusunu ortalar (hem dikey hem yatay olarak).*@
+            <div class="modal-content">
+                @*Modal kutusunun asıl içeriğini kapsar.*@
+                <div class="modal-header">
+                    @*Modal başlığını içerir.*@
+                    <h2 class="modal-title">Rol Ekleme</h2>
+                </div>
+                <div class="modal-body">
+                    @*Kullanıcının göreceği esas içerik burada yer alır.*@
+                    <form id="updateForm">
+                        @*Bu forma bir kimlik veriyor (id). JavaScript ile bu formun verilerini almak ya da submit işlemini yapmak için bu id kullanılır.*@
+                        <input type="hidden" id="Roleid" />
+                        <div class="form-group">
+                            @*Bootstrap kütüphanesinde form-group sınıfı, bir form alanı ile ona ait etiketi (label) birlikte düzenli ve şık bir şekilde göstermek için kullanılır.*@
+                            <label>Name</label>
+                            <input type="text" id="RoleName" class="form-control" />
+                        </div>
+                        <button type="button" class="btn btn-success" id="btnEkle">Kaydet</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tamam</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#btnEkle').click(function () {
+            var role = {
+                Roleid: $('#Roleid').val(),
+                RoleName: $('#RoleName').val()
+            };
+
+            $.ajax({
+                url: '/Role/RoleEkle',
+                type: 'POST',
+                data: role,
+                success: function () {
+                    alert("Ekleme başarılı!");
+                    location.reload(); // Sayfayı istersen yenileyebiliriz
+                },
+                error: function () {
+                    alert("Bir hata oluştu!");
+                }
+            });
+        });
+
+
+    </script>
+
+
+    /**/
+}
+
+

@@ -1,0 +1,24 @@
+﻿@model WebApplication1.Models.Siniflar.Employee
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+
+<h2>Tekrar Giriş Yapmayı Deneyiniz</h2>
+
+@Html.Raw(ViewBag.Mesaj)
+
+<br />
+<form class="form-group" method="post" autocomplete="off">
+
+
+    <label>Kullanıcı Adı:</label>
+    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", autocomplete = "off" })
+
+
+    <label>Şifre:</label>
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", autocomplete = "new-password" })
+
+    <input type="submit" value="Giriş Yap" />
+
+</form>

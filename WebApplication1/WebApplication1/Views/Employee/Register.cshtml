@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.Siniflar.Employee
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+
+    <br /> 
+    <form class="form-group" method="post" autocomplete="off">
+
+        <label>İsim:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+
+        <label>Soyisim:</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+
+        <label>Mail Adresi:</label>
+        @Html.TextBoxFor(x => x.Employeemail, new { @class = "form-control" })
+
+        <label>Kullanıcı Adı:</label>
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", autocomplete = "off" })
+
+        <label>Rol:</label>
+        @Html.DropDownListFor(x => x.Roleid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+
+        <label>Şifre:</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", autocomplete = "new-password" })
+
+        <label>Yeniden Şifre:</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" , autocomplete = "off" })
+
+        <input type="submit" value="Kayıt Ol" />
+    </form>
+ 
+   

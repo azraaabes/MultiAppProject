@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Login Page" />
+
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="~/weblogintema/weblogin/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="~/weblogintema/weblogin/css/font-awesome.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('/weblogintema/weblogin/images/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .login-form h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-weight: 600;
+                font-size: 24px;
+                color: #333;
+            }
+
+        .login-agileits-top input[type="text"],
+        .login-agileits-top input[type="password"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .login-agileits-top input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .login-agileits-top input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+        .login-agileits-bottom {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+            .login-agileits-bottom a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+
+                .login-agileits-bottom a:hover {
+                    text-decoration: underline;
+                }
+
+        .fa-lock {
+            display: block;
+            font-size: 40px;
+            text-align: center;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <div class="login-form login-form-left">
+            <div class="agile-row">
+                <h3>Giriş Formu</h3>
+                <span class="fa fa-lock"></span>
+                <div class="clear"></div>
+                <div class="login-agileits-top">
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    {
+                        <input type="text" class="name" name="Username" placeholder="Kullanıcı Adınız" required autocomplete="off"/>
+                        <input type="password" class="password" name="Password" placeholder="Şifreniz" required autocomplete="new-password"/>
+                        <input type="submit" value="Giriş Yap" />
+                    }
+                </div>
+                <div class="login-agileits-bottom">
+                    <h6><a href="/Employee/Register">Kayıt Ol</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/weblogintema/weblogin/js/jquery-2.1.4.min.js"></script>
+</body>
+</html>

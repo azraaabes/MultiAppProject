@@ -1,0 +1,84 @@
+2025-06-25 16:04:42.3070|0|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7235 
+2025-06-25 16:04:42.3304|0|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5076 
+2025-06-25 16:04:42.4097|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2025-06-25 16:04:42.4097|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2025-06-25 16:04:42.4097|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\AZRA\source\repos\Webapiproje\Webapiproje 
+2025-06-25 16:04:53.6759|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Webapiproje.Controllers.TestController.Get (Webapiproje)' 
+2025-06-25 16:04:53.7442|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Get", controller = "Test"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller Webapiproje.Controllers.TestController (Webapiproje). 
+2025-06-25 16:04:53.7553|0|INFO|Webapiproje.Controllers.TestController|TestController Get() çağrıldı. 
+2025-06-25 16:04:53.7885|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2025-06-25 16:04:53.8046|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Webapiproje.Controllers.TestController.Get (Webapiproje) in 37.165ms 
+2025-06-25 16:04:53.8046|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Webapiproje.Controllers.TestController.Get (Webapiproje)' 
+2025-06-25 16:06:05.7736|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)' 
+2025-06-25 16:06:05.7801|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Webapiproje.Models.LoginDto) on controller Webapiproje.Controllers.LoginController (Webapiproje). 
+2025-06-25 16:06:07.3886|0|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[@__dto_Username_0='?' (Size = 10) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username]
+FROM [Employees] AS [e]
+WHERE [e].[Username] = @__dto_Username_0 
+2025-06-25 16:06:07.4710|0|INFO|Webapiproje.Controllers.LoginController|Kullanıcı 'azra' başarılı şekilde giriş yaptı. 
+2025-06-25 16:06:07.4710|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType2`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-06-25 16:06:07.4710|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Webapiproje.Controllers.LoginController.Login (Webapiproje) in 1692.5158ms 
+2025-06-25 16:06:07.4710|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)' 
+2025-06-25 16:06:07.5140|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)' 
+2025-06-25 16:06:07.5140|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetAllEmployees", controller = "Employee"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Webapiproje.Controllers.EmployeeController (Webapiproje). 
+2025-06-25 16:06:07.6170|0|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username], [r].[Roleid], [r].[RoleName]
+FROM [Employees] AS [e]
+INNER JOIN [Roless] AS [r] ON [e].[Roleid] = [r].[Roleid] 
+2025-06-25 16:06:07.6409|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Webapiproje.Models.Employee, Webapiproje, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-06-25 16:06:07.6409|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje) in 128.6077ms 
+2025-06-25 16:06:07.6409|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)' 
+2025-06-25 16:11:36.8222|0|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7235 
+2025-06-25 16:11:36.8457|0|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5076 
+2025-06-25 16:11:36.9068|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2025-06-25 16:11:36.9068|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2025-06-25 16:11:36.9068|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\AZRA\source\repos\Webapiproje\Webapiproje 
+2025-06-25 16:11:54.7272|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)' 
+2025-06-25 16:11:54.7931|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Webapiproje.Models.LoginDto) on controller Webapiproje.Controllers.LoginController (Webapiproje). 
+2025-06-25 16:11:58.1061|0|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (92ms) [Parameters=[@__dto_Username_0='?' (Size = 10) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username]
+FROM [Employees] AS [e]
+WHERE [e].[Username] = @__dto_Username_0 
+2025-06-25 16:11:58.3163|0|INFO|Webapiproje.Controllers.LoginController|Kullanıcı 'azra' başarılı şekilde giriş yaptı. 
+2025-06-25 16:11:58.3463|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType2`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-06-25 16:11:58.3760|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Webapiproje.Controllers.LoginController.Login (Webapiproje) in 3561.459ms 
+2025-06-25 16:11:58.3760|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)' 
+2025-06-25 16:11:58.4128|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)' 
+2025-06-25 16:11:58.4128|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetAllEmployees", controller = "Employee"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Webapiproje.Controllers.EmployeeController (Webapiproje). 
+2025-06-25 16:11:58.6302|0|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username], [r].[Roleid], [r].[RoleName]
+FROM [Employees] AS [e]
+INNER JOIN [Roless] AS [r] ON [e].[Roleid] = [r].[Roleid] 
+2025-06-25 16:11:58.6692|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Webapiproje.Models.Employee, Webapiproje, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. 
+2025-06-25 16:11:58.6798|0|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje) in 261.6768ms 
+2025-06-25 16:11:58.6798|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)' 
+[INFO] Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7235
+[INFO] Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5076
+[INFO] Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+[INFO] Microsoft.Hosting.Lifetime - Hosting environment: Development
+[INFO] Microsoft.Hosting.Lifetime - Content root path: C:\Users\AZRA\source\repos\Webapiproje\Webapiproje
+[INFO] Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)'
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Webapiproje.Models.LoginDto) on controller Webapiproje.Controllers.LoginController (Webapiproje).
+[INFO] Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (65ms) [Parameters=[@__dto_Username_0='?' (Size = 10) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username]
+FROM [Employees] AS [e]
+WHERE [e].[Username] = @__dto_Username_0
+[INFO] Webapiproje.Controllers.LoginController - Kullanıcı 'azra' başarılı şekilde giriş yaptı.
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing OkObjectResult, writing value of type '<>f__AnonymousType2`4[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Webapiproje.Controllers.LoginController.Login (Webapiproje) in 3509.2008ms
+[INFO] Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Webapiproje.Controllers.LoginController.Login (Webapiproje)'
+[INFO] Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)'
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllEmployees", controller = "Employee"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Webapiproje.Controllers.EmployeeController (Webapiproje).
+[INFO] Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Employeeid], [e].[Employeemail], [e].[Name], [e].[Password], [e].[Roleid], [e].[Surname], [e].[Username], [r].[Roleid], [r].[RoleName]
+FROM [Employees] AS [e]
+INNER JOIN [Roless] AS [r] ON [e].[Roleid] = [r].[Roleid]
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Webapiproje.Models.Employee, Webapiproje, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[INFO] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje) in 260.9464ms
+[INFO] Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Webapiproje.Controllers.EmployeeController.GetAllEmployees (Webapiproje)'
+[INFO] Webapiproje.Controllers.LoginController - Kullanıcı 'ayşe' başarılı şekilde giriş yaptı.
+[INFO] Webapiproje.Controllers.LoginController - Kullanıcı 'azra' başarılı şekilde giriş yaptı.
+[WARN] Webapiproje.Controllers.LoginController - Başarısız giriş denemesi, kullanıcı adı: azra
+[INFO] Microsoft.Extensions.Logging.Logger`1[[Webapiproje.Controllers.LoginController, Webapiproje, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] - Giriş yapıldı.
+[INFO] NLog.Logger - Giriş yapıldı.
+[INFO] NLog.Logger - Giriş yapıldı.
