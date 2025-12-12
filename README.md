@@ -10,8 +10,8 @@ Bu repo; modern *.NET* mimarisi kullanılarak geliştirilmiş, *MVC Web Arayüz�
 ## 🎯 Proje Özeti ve Amacı
 
 Bu proje, sadece işlevsel bir web uygulaması geliştirmeyi değil, aynı zamanda uygulamanın yoğun yük altındaki davranışlarını analiz etmeyi hedefler. Proje üç ana modülden oluşur:
-1.  *MyWebApp:* Kullanıcı yönetimi, log görüntüleme ve dashboard işlemlerini içeren ASP.NET Core MVC arayüzü.
-2.  *MyNewApiProject:* Dış servisler ve mobil entegrasyonlar için güvenli (JWT) veri akışı sağlayan Backend servisi.
+1.  *WebApplicatin1:* Kullanıcı yönetimi, log görüntüleme ve dashboard işlemlerini içeren ASP.NET Core MVC arayüzü.
+2.  *webapiprojesi:* Dış servisler ve mobil entegrasyonlar için güvenli (JWT) veri akışı sağlayan Backend servisi.
 3.  *Performance Lab:* Uygulamanın sınırlarını zorlayan JMeter test senaryoları ve analiz raporları.
 
 ## 🛠 Kullanılan Teknolojiler ve Mimari
